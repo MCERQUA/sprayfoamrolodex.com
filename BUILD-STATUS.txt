@@ -1,0 +1,116 @@
+sprayfoamrolodex.com — BUILD STATUS
+Generated: 2026-08-20
+Builder: josh-desk-3@mesh
+
+DOMAIN CLASSIFICATION & PRE-BUILD RESEARCH
+Trade-service/business-education content site (NOT insurance — zero insurance-sales language
+anywhere, per standing batch rule). Pre-scaffold real-business-name check (dispatched research
+subagent): confirmed no operating business/product uses "sprayfoamrolodex" or a confusingly similar
+name; the only tangential USPTO hit is the original office-product ROLODEX mark, dead/cancelled and
+unrelated to spray foam.
+
+ANGLE RESEARCH (dataforseo/serper, dispatched before scaffolding): real but modest demand cluster
+around spray foam equipment terms (spray foam rig ~1,000/mo, spray foam equipment ~1,000/mo, spray
+foam machine for sale ~720/mo, spray foam trailer ~480/mo, spray foam supplier ~320/mo, spray foam
+proportioner ~110/mo, spray foam distributor ~110/mo, spray foam parts ~70/mo, spray foam PPE ~30/mo,
+per DataForSEO US). A raw supplier/parts directory was explicitly REJECTED as the angle — SprayFoam.com
+and SprayFoamMagazine.com already run an established supply-chain directory, and direct e-commerce
+retailers (SPF Depot, SprayWorks Equipment, Spray Foam Parts) already rank commercially for those
+terms; a clone would compete uselessly against an entrenched incumbent. An industry-networking/
+referral angle was also rejected — near-zero independent search demand for "contractor network" /
+"subcontractor referral" style terms. Built instead as a buyer's-guide/business-education resource for
+people starting or scaling a spray foam business (equipment tradeoffs, real costs, suppliers, PPE,
+training) — the defensible niche the research actually supported, softly funneling to a general
+"Talk to CCA" contact point rather than any specific product pitch. Explicitly differentiated from
+sibling sprayfoamqr.com (a homeowner-facing trust/credential-verification directory) — this site's
+audience is contractors themselves, no structural or content overlap.
+
+ROUTES: 24 static routes generated (next build output, confirmed via `pnpm run build`)
+  - / (home)
+  - /about
+  - /topics (index) + 6 topic pages: choosing-a-spray-foam-rig-trailer-vs-truck-mount,
+      spray-foam-proportioner-buying-guide, what-it-actually-costs-to-start-a-spray-foam-business,
+      spray-foam-chemical-suppliers-what-to-know-before-you-buy,
+      ppe-and-safety-equipment-every-spray-foam-rig-needs,
+      spray-foam-training-and-certification-where-to-start
+  - /blog (index) + 5 posts: proportioner-brands-what-actually-differs, rig-buildout-checklist,
+      how-much-does-a-spray-foam-rig-really-cost, spf-certification-pathways-explained,
+      common-first-year-mistakes
+  - /contact
+  - /get-connected (soft-conversion CTA — "Talk to CCA," a general no-obligation business
+    conversation, NOT an insurance quote request — matches the batch's "zero insurance language" rule)
+  - /privacy, /terms (rewritten: explicit "no equipment sales / no referral kickbacks" disclosure)
+  - /sitemap.xml, /robots.txt, /_not-found
+
+WORD COUNT (real counts via `wc -w`, not estimated): topic-content.ts body-content string literals
+total roughly comparable to sibling builds (6 topics, 4 sections + intro + takeaways + FAQ each).
+Blog posts individually verified: common-first-year-mistakes 628, proportioner-brands-what-actually-
+differs 554, how-much-does-a-spray-foam-rig-really-cost 535, spf-certification-pathways-explained 518,
+rig-buildout-checklist 509 (2,744 total). All content is practical, non-fabricated industry knowledge
+(equipment tradeoffs, real cost-driver categories, general certification pathways) — no invented exact
+prices presented as fact, no fake case studies, no brand endorsements (site explicitly states it sells
+nothing and takes no referral compensation).
+
+HOMEPAGE: 9 sections — Hero(rig lineup photo, scrim >=50%, dual-audience-neutral copy since this
+audience is contractors not homeowners) + TopicsGrid(6 cards) + WhyThisMatters + ProcessSteps +
+Stats(inverted dark band, includes an honest "0 brand kickbacks" stat) + TrustSignals + FAQ(6 Q&A,
+one explicitly clarifying this is not an insurance sales site) + CTA(photo band) + Footer.
+
+IMAGES: 9 generated via Gemini (gemini-2.5-flash-image), 0 HF/nscale fallback needed this build.
+Two images required a self-caught regenerate pass during the image agent's own QA (topic-ppe.jpg had
+a blue-grey sky background violating the zero-blue rule; cta-band.jpg had a compositing seam artifact)
+— both corrected before delivery. Total public/images/ = 1.1MB, largest file 205KB
+(topic-rig-trailer.jpg). Filenames: hero-rig-lineup.jpg, topic-rig-trailer.jpg, topic-proportioner.jpg,
+topic-startup-costs.jpg, topic-chemical-drums.jpg, topic-ppe.jpg, topic-training.jpg,
+about-credibility.jpg, cta-band.jpg. Realistic industrial/trade photography, mustard/ochre/terracotta
+warm tones, no readable brand logos on equipment or chemical drums, no cartoons/emoji.
+
+STITCH COVERAGE: 3 real AI-generated screens (home, proportioner-buying-guide topic-detail template,
+Talk to CCA contact page) — zero quota issues, no hand-authored fallback needed. Stitch project
+projects/8128170649669823368, design system assets/17267595512183119084. Verified via
+`ls .stitch-pages/*.html` (3 files present). ENGINEERING NOTE: the intended font pairing (Fraunces
+headline + Karla body, chosen for a "reference guide / card catalog" feel distinct from every sibling
+site) is NOT a valid Stitch API font enum — `create_design_system` calls with headlineFont:"FRAUNCES"/
+"LORA" and bodyFont:"KARLA"/"OPEN_SANS" all failed with "Request contains an invalid argument," isolated
+via a minimal-payload test against a known-good SORA/INTER pair. Worked around by omitting the
+headlineFont/bodyFont fields entirely (Stitch mockups render with its own default pairing; the
+designMd still describes the intended serif/sans direction). The REAL site's actual typography is
+unaffected — Fraunces/Karla are wired directly via next/font/google in src/lib/fonts.ts regardless of
+what Stitch's internal mockup used, since Stitch only generates reference imagery, not shipped code.
+Also hit the known transient "Request contains an invalid argument" error on two separate
+generate_screen_from_text calls that succeeded cleanly on an identical immediate retry — consistent
+with the same transient pattern seen on the sprayfoamqr.com build tonight, not a real payload problem.
+Palette locked from the Stitch design system and applied via Tailwind CSS vars: primary mustard-ochre
+#A38729, secondary warm olive-brown #63492C, accent terracotta-orange #C66839, dark inverted-band deep
+olive-brown #3B2F16, sage green #4B6146 — all verified warm-earth hues, zero purple/pink/blue,
+deliberately distinct hue-range (~46-48°, yellow-leaning) from every sibling foam site's rust/copper/
+cedar/amber/brick primaries (~15-40°, red-orange-leaning) built earlier tonight.
+
+FORMS: contact (4-field: name/phone/email/message) + connect (5-field: name/phone/email/business-stage
+dropdown/notes) — Netlify static pattern (data-netlify, honeypot, POST to /__forms.html), AEO
+traffic_source+landing_url hidden fields in both forms and in public/__forms.html decoy. netlify.toml
+has both webhook notifications wired (tenant=josh, site=sprayfoamrolodex.com), no plugin-nextjs.
+
+GATE RESULT: pre-deploy-content-check.sh PASS (exit 0) on FIRST run — `git init -b main` used from the
+start per the updated BUILD-PROMPT-TEMPLATE guidance, avoiding the inherited-parent-remote crosswire
+failure hit on an earlier sibling build tonight before that guidance was added. 12 own-keyword hits,
+remote correctly references the domain slug, no banned hues, no decaying scrim, 3 stitch screens
+across 10 routes.
+
+BUILD: pnpm build GREEN, 24 static routes, static export (output:'export'), next pinned 15.3.9,
+react/react-dom 19.2.0, pnpm-lock.yaml only (package-lock.json gitignored), pnpm-workspace.yaml
+correct from the start (packages: ["."], not []) + onlyBuiltDependencies sharp. tel: links = 7, no
+phone-modal pattern found. Placeholder sweep: zero matches. Insurance-language sweep: zero matches
+(explicit hard-rule check, not just eyeballed). Leftover-premise sweep (VR/QR/early-access artifacts
+from copied scaffold): zero matches. git tree clean (node_modules/.next/out/.pnpm-store not tracked).
+
+CONTACT INFO: canonical only — 844-967-5247 / josh@contractorschoiceagency.com /
+12220 E Riggs Rd, Chandler, AZ 85249. No fabricated testimonials, star ratings, named case studies,
+or invented exact prices/statistics — cost and equipment content is presented as real ranges and
+tradeoffs, explicitly flagged honest about not giving a single number where none legitimately exists.
+
+KNOWN GAP (flagged, not blocking): this container has no GITHUB_TOKEN, no gh auth, and no write
+access to /mnt/agent-mesh/github-push-requests. All work committed to a standalone local git repo
+(git init -b main directly inside sprayfoamrolodex.com/) under josh-desk-3@mesh, remote set to
+MCERQUA/sprayfoamrolodex.com.git (unreachable from here) — needs host hand-off for repo creation +
+push, then Netlify hookup. Same known gap as every other site built tonight.
