@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SprayFoamRolodex - The Honest Reference Guide</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#A38729', // mustard-ochre
+                            dark: '#8a7122',
+                        },
+                        secondary: {
+                            DEFAULT: '#63492C', // warm olive-brown
+                        },
+                        accent: {
+                            DEFAULT: '#C66839', // terracotta-orange
+                        },
+                        background: {
+                            DEFAULT: '#F9F5EC', // warm parchment
+                            dark: '#3B2F16', // deep olive-brown
+                        },
+                        surface: {
+                            DEFAULT: '#FFFFFF',
+                        },
+                        text: {
+                            DEFAULT: '#2B2117', // dark brown
+                            light: '#F9F5EC',
+                            muted: '#63492C',
+                        },
+                        sage: '#4B6146',
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem", // 12px
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans", "sans-serif"],
+                        "display": ["Public Sans", "sans-serif"],
+                        "body": ["Public Sans", "sans-serif"],
+                        "label": ["Public Sans", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+            background-color: #F9F5EC;
+            color: #2B2117;
+        }
+        
+        /* Serif headlines */
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="antialiased font-body">
+<!-- 1. TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#F9F5EC] border-b border-[#63492C]/10 shadow-sm transition-all duration-300" id="navbar">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center space-x-2">
+<span class="text-2xl font-serif font-bold text-[#2B2117]">SprayFoamRolodex</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#A38729] font-bold border-b-2 border-[#A38729] pb-1" href="#">Home</a>
+<a class="text-[#2B2117] font-medium hover:text-[#C66839] transition-colors duration-200" href="#">About</a>
+<a class="text-[#2B2117] font-medium hover:text-[#C66839] transition-colors duration-200" href="#">Topics</a>
+<a class="text-[#2B2117] font-medium hover:text-[#C66839] transition-colors duration-200" href="#">Blog</a>
+<a class="text-[#2B2117] font-medium hover:text-[#C66839] transition-colors duration-200" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-4">
+<a class="hidden lg:block text-[#2B2117] font-medium hover:text-[#C66839] transition-colors" href="tel:5550123456">(555) 012-3456</a>
+<button class="bg-[#A38729] text-[#F9F5EC] px-5 py-2.5 rounded-lg font-medium hover:bg-[#8a7122] transition-colors shadow-sm scale-95 active:opacity-80 transition-all flex items-center space-x-2">
+<span>Talk to CCA</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- 2. Full-bleed hero -->
+<section class="relative pt-24 lg:pt-32 pb-20 lg:pb-32 bg-[#3B2F16] min-h-[921px] flex items-center">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full" data-alt="A meticulously organized lineup of modern spray foam insulation rigs and trucks parked in a clean, brightly lit industrial warehouse. The lighting is crisp and practical, highlighting the industrial nature of the equipment. The mood is professional, efficient, and trustworthy, reflecting a high-quality reference guide aesthetic. Warm earth tones predominate, with subtle ochre and olive accents in the warehouse setting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBmpbwXoJooMahMIkQDxSc6-nCyNyJbYs77rkyAkMyK7xhoQRX9Pk0Hpp_Cm-yz0J0Cj-5NFprC6rdWeuTwd_X7z8Jr0d4V9D_NkVK0ZpbdRHYbVXtviPUjFkEMjCoyZJH5epqGiR83xULLV5-7Qp7pAcb2wDqlF-yi3PP0ZH8zQ-HxnxBvWp4yt2WPMjEsBXPsf7cCJCpcBPvfpmYVN1Qf2PwCbXlY1kDSq3E05DZpRM9tJlptey_NiReI-PDL5X8WTBYMGB98Qdg')"></div>
+<div class="absolute inset-0 bg-[#3B2F16]/60 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#3B2F16] via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-12">
+<div class="max-w-3xl">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-[#F9F5EC] leading-tight mb-6">
+                    The Honest Reference Guide to Starting &amp; Running a Spray Foam Business
+                </h1>
+<p class="text-xl md:text-2xl text-[#F9F5EC]/90 mb-10 font-medium leading-relaxed">
+                    Rigs, proportioners, startup costs, chemical suppliers, PPE, and training explained with nothing to sell.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-[#A38729] text-[#F9F5EC] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#8a7122] transition-colors text-center shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200" href="#topics">
+                        Explore the Topics
+                    </a>
+<a class="bg-[#F9F5EC] text-[#2B2117] px-8 py-4 rounded-lg font-bold text-lg hover:bg-white transition-colors text-center shadow-lg hover:shadow-xl hover:-translate-y-0.5 duration-200 flex items-center justify-center gap-2" href="#contact">
+<span class="material-symbols-outlined">call</span>
+                        Talk to CCA
+                    </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Bar -->
+<section class="bg-[#F9F5EC] border-b border-[#63492C]/10 relative z-20 -mt-8 shadow-sm">
+<div class="max-w-7xl mx-auto px-6 py-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-[#A38729] text-3xl">verified</span>
+<span class="font-bold text-[#2B2117]">Zero Brand Kickbacks</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-[#A38729] text-3xl">library_books</span>
+<span class="font-bold text-[#2B2117]">Unbiased Information</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-[#A38729] text-3xl">build</span>
+<span class="font-bold text-[#2B2117]">Practical Guidance</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-[#A38729] text-3xl">groups</span>
+<span class="font-bold text-[#2B2117]">For Contractors</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Topics Grid (Bento style) -->
+<section class="py-20 bg-white" id="topics">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-12">
+<span class="text-[#C66839] font-bold tracking-wider uppercase text-sm mb-2 block">The Topics</span>
+<h2 class="text-3xl md:text-4xl font-serif font-bold text-[#2B2117]">Everything you need before you buy anything.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="group relative rounded-xl overflow-hidden bg-[#F9F5EC] border border-[#63492C]/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A detailed, technical view of a spray foam insulation trailer interior, showing neatly organized hoses, a generator, and storage compartments. The lighting is bright and even, emphasizing the mechanical details. The image has a practical, industrial, reference-guide aesthetic with warm earth tones, particularly ochre and olive-brown." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAC30R5-kFfbDra1cFDy360Gs7DpyK0UWnGyM9G5q2F2b3wY29Pqbza-BVMvMcGch1px984god7F8788plud7Z8xiM5yKYHz1jpD9j-MOYto51EIMh5ju40WDiudNgnuORZVs2z3W-YV4IbdIqfoT3W1kB9bzLQGcjaBQ2vFgKggU_HJsIVjdaPx4cLUwSbPpV2DQDU-ftSjIzt6jP3SZf0GK4BKEeDGXnfx91ha466JVOhTDTCI7z2dHNtgJg0otOV1NqRLEl0u3I')"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-serif font-bold text-[#2B2117] mb-3">Rig Selection</h3>
+<p class="text-[#63492C] mb-6 flex-grow">Trailer vs. truck-mount. Analyzing payload, footprint, and towing requirements for your operational model.</p>
+<a class="inline-flex items-center text-[#A38729] font-bold hover:text-[#C66839] transition-colors" href="#">
+                            Read the Guide <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative rounded-xl overflow-hidden bg-[#F9F5EC] border border-[#63492C]/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Close up detailed shot of a high-end spray foam proportioner machine. The metal components gleam under practical workshop lighting. The focus is on the dials and mechanical complexity, presented in a clean, organized manner typical of a technical manual. Warm olive and dark brown shadows ground the image." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSVc9nLADnUmOEhDj43sHlUdguKNq_RJqCthSu83-kG7ZNSRJoheprEZZaNGZsymf4oh_578o7bO0RVskJjoybZxRifBMOX8BMbMOKSOZMJZGeb29GCtTe82RrwROi67x91VOHba2-iSGflmtU_fLRWiHxaIEmNUcwoKYVMsjNgzvBWHNa3YBxqfC7YZRx_cFC0YBryaWIcSKaZMx0TTKZBMooYsHAmbmEPfB8RoL0Bxgud7lzBoTSVdiT5EaR86AZoXJHNkXZ05g')"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-serif font-bold text-[#2B2117] mb-3">Proportioner Guide</h3>
+<p class="text-[#63492C] mb-6 flex-grow">Pneumatic, hydraulic, or electric? Understanding output, pressure, and heater capacities to match your business goals.</p>
+<a class="inline-flex items-center text-[#A38729] font-bold hover:text-[#C66839] transition-colors" href="#">
+                            Read the Guide <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative rounded-xl overflow-hidden bg-[#F9F5EC] border border-[#63492C]/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 relative overflow-hidden bg-[#3B2F16] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#A38729] text-6xl">account_balance_wallet</span>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-serif font-bold text-[#2B2117] mb-3">Startup Costs</h3>
+<p class="text-[#63492C] mb-6 flex-grow">The real numbers behind launching a successful operation, beyond just the equipment sticker price.</p>
+<a class="inline-flex items-center text-[#A38729] font-bold hover:text-[#C66839] transition-colors" href="#">
+                            Read the Guide <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative rounded-xl overflow-hidden bg-[#F9F5EC] border border-[#63492C]/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Neatly arranged drums of spray foam insulation chemicals on pallets in a clean warehouse. The image is structured and orderly, emphasizing supply chain logistics. Practical lighting highlights the labels and industrial setting. The overall tone is objective and reference-oriented, utilizing warm earthy hues." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCRPtSFCE3zZqHkmP1g12E2rh0i3ZvrfqKgY0J4UkD_JLr5h0monFW_xGbF0RRO_e0EQyh7PuCQFEZlPfTc1GpOiQJ9vxzB7dD8DKkSd-e9V2ljXNzGwNvyQfvRxGPlomHlLu-WsoxeVQ8GpRTLhfRnfdMGD0xKMILyu1EjCWo15PZuW0oAIlpKk9cbjzBY8xX1ApB9T9HGiTv90IxpBoxNxmTKS6ArHhtW4z4OdnMWRqeliVq25U8T53-SRIWw5MG1DEbNewMVBE')"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-serif font-bold text-[#2B2117] mb-3">Chemical Suppliers</h3>
+<p class="text-[#63492C] mb-6 flex-grow">Navigating the major systems, yields, support networks, and finding the right material partner.</p>
+<a class="inline-flex items-center text-[#A38729] font-bold hover:text-[#C66839] transition-colors" href="#">
+                            Read the Guide <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group relative rounded-xl overflow-hidden bg-[#F9F5EC] border border-[#63492C]/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 relative overflow-hidden bg-[#4B6146] flex items-center justify-center">
+<span class="material-symbols-outlined text-[#F9F5EC] text-6xl">health_and_safety</span>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-serif font-bold text-[#2B2117] mb-3">PPE &amp; Safety</h3>
+<p class="text-[#63492C] mb-6 flex-grow">Essential gear, ventilation requirements, and health protocols for safe application environments.</p>
+<a class="inline-flex items-center text-[#A38729] font-bold hover:text-[#C66839] transition-colors" href="#">
+                            Read the Guide <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group relative rounded-xl overflow-hidden bg-[#F9F5EC] border border-[#63492C]/10 hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="h-48 relative overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="A professional instructor demonstrating spray foam techniques to a small group of contractors in a dedicated training facility. The scene is educational and focused, with clear, bright lighting. The aesthetic is documentary and informative, heavily leaning on the brand's warm parchment and ochre tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDYtewQAwmdCWZxVA7OOXH5IUvlVEk65zOKnerKEKX7aH9PzfBvCbI8t9YD8p_vbj82lM0LJaul0c6R4K55HJ1G73kLkoEmRBBVgZG0s8oAnNXozD-hIz-uNHcTpq0rrOF1qn9hN-Ldl46CdeUjyzrx1amr4badT21TjuG0wKu59NK6bfKeLAUgJ0e2ZvQk-y8ZwGvDo3Zp3jyd0rlw3nb5timXYy7W6NMc6utFJJUgxaioaei75YHq9nXiuJYn7hc3nZ-armmeLns')"></div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="text-xl font-serif font-bold text-[#2B2117] mb-3">Training</h3>
+<p class="text-[#63492C] mb-6 flex-grow">Certification programs, manufacturer schools, and hands-on experience needed before spraying your first job.</p>
+<a class="inline-flex items-center text-[#A38729] font-bold hover:text-[#C66839] transition-colors" href="#">
+                            Read the Guide <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Why This Matters (Glassmorphism inspired on dark) -->
+<section class="py-20 bg-[#3B2F16] relative overflow-hidden">
+<!-- Abstract background elements -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-[#A38729] opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-[#C66839] opacity-10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+<div class="max-w-7xl mx-auto px-6 relative z-10">
+<h2 class="text-3xl md:text-4xl font-serif font-bold text-[#F9F5EC] mb-12 text-center">Why This Rolodex Exists</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl">
+<span class="material-symbols-outlined text-[#A38729] text-4xl mb-4">analytics</span>
+<h3 class="text-xl font-bold text-[#F9F5EC] mb-2">Real Numbers</h3>
+<p class="text-[#F9F5EC]/80">No sugar-coating. We break down the actual costs, yields, and profit margins you can realistically expect.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl">
+<span class="material-symbols-outlined text-[#A38729] text-4xl mb-4">balance</span>
+<h3 class="text-xl font-bold text-[#F9F5EC] mb-2">Equipment Tradeoffs</h3>
+<p class="text-[#F9F5EC]/80">Every rig setup has pros and cons. We outline the honest compromises so you can make an informed choice.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl">
+<span class="material-symbols-outlined text-[#A38729] text-4xl mb-4">rocket_launch</span>
+<h3 class="text-xl font-bold text-[#F9F5EC] mb-2">For the Startup Contractor</h3>
+<p class="text-[#F9F5EC]/80">Tailored specifically for those entering the market or scaling their first dedicated spray rig.</p>
+</div>
+<div class="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-xl">
+<span class="material-symbols-outlined text-[#A38729] text-4xl mb-4">history</span>
+<h3 class="text-xl font-bold text-[#F9F5EC] mb-2">20+ Years Experience</h3>
+<p class="text-[#F9F5EC]/80">Compiled from decades of industry data, field experience, and observing countless contractor successes and failures.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 10. Footer -->
+<footer class="bg-[#3B2F16] w-full rounded-t-xl mt-0">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto text-[#F9F5EC]">
+<div class="md:col-span-1">
+<div class="font-headline text-xl text-[#A38729] mb-4 font-bold">SprayFoamRolodex</div>
+<p class="font-body text-label-md text-[#F9F5EC]/80">
+                    © 2024 SprayFoamRolodex by Contractors Choice Agency. All rights reserved. No referral kickbacks, just real data.
+                </p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-[#F9F5EC]">Topics</h4>
+<ul class="space-y-2 font-body text-label-md">
+<li><a class="text-[#F9F5EC]/80 hover:text-[#C66839] transition-colors opacity-90 hover:opacity-100" href="#">Rig Selection</a></li>
+<li><a class="text-[#F9F5EC]/80 hover:text-[#C66839] transition-colors opacity-90 hover:opacity-100" href="#">Proportioner Guide</a></li>
+<li><a class="text-[#F9F5EC]/80 hover:text-[#C66839] transition-colors opacity-90 hover:opacity-100" href="#">Startup Costs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-[#F9F5EC]">More Guides</h4>
+<ul class="space-y-2 font-body text-label-md">
+<li><a class="text-[#F9F5EC]/80 hover:text-[#C66839] transition-colors opacity-90 hover:opacity-100" href="#">Chemical Suppliers</a></li>
+<li><a class="text-[#F9F5EC]/80 hover:text-[#C66839] transition-colors opacity-90 hover:opacity-100" href="#">PPE &amp; Safety</a></li>
+<li><a class="text-[#F9F5EC]/80 hover:text-[#C66839] transition-colors opacity-90 hover:opacity-100" href="#">Training</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-[#F9F5EC]">Connect</h4>
+<a class="inline-block bg-[#A38729] text-[#2B2117] px-6 py-2 rounded-lg font-bold hover:bg-[#8a7122] hover:text-[#F9F5EC] transition-colors" href="#">
+                    Talk to CCA
+                </a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple sticky nav script
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body></html>
