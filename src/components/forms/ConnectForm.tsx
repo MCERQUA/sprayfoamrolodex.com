@@ -116,6 +116,84 @@ export function ConnectForm() {
       </div>
 
       <div>
+        <label htmlFor="cn-street" className="block text-sm font-medium mb-2">Business Address</label>
+        <input id="cn-street" name="street_address" type="text" required autoComplete="address-line1" placeholder="1234 W Main St"
+          className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="cn-city" className="block text-sm font-medium mb-2">City</label>
+          <input id="cn-city" name="city" type="text" required autoComplete="address-level2" placeholder="Phoenix"
+            className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
+        </div>
+        <div>
+          <label htmlFor="cn-state" className="block text-sm font-medium mb-2">State</label>
+          <select id="cn-state" name="state" required autoComplete="address-level1" defaultValue=""
+            className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors">
+            <option value="" disabled>Select a state</option>
+            <option key="AL" value="AL">Alabama</option>
+            <option key="AK" value="AK">Alaska</option>
+            <option key="AZ" value="AZ">Arizona</option>
+            <option key="AR" value="AR">Arkansas</option>
+            <option key="CA" value="CA">California</option>
+            <option key="CO" value="CO">Colorado</option>
+            <option key="CT" value="CT">Connecticut</option>
+            <option key="DE" value="DE">Delaware</option>
+            <option key="DC" value="DC">District of Columbia</option>
+            <option key="FL" value="FL">Florida</option>
+            <option key="GA" value="GA">Georgia</option>
+            <option key="HI" value="HI">Hawaii</option>
+            <option key="ID" value="ID">Idaho</option>
+            <option key="IL" value="IL">Illinois</option>
+            <option key="IN" value="IN">Indiana</option>
+            <option key="IA" value="IA">Iowa</option>
+            <option key="KS" value="KS">Kansas</option>
+            <option key="KY" value="KY">Kentucky</option>
+            <option key="LA" value="LA">Louisiana</option>
+            <option key="ME" value="ME">Maine</option>
+            <option key="MD" value="MD">Maryland</option>
+            <option key="MA" value="MA">Massachusetts</option>
+            <option key="MI" value="MI">Michigan</option>
+            <option key="MN" value="MN">Minnesota</option>
+            <option key="MS" value="MS">Mississippi</option>
+            <option key="MO" value="MO">Missouri</option>
+            <option key="MT" value="MT">Montana</option>
+            <option key="NE" value="NE">Nebraska</option>
+            <option key="NV" value="NV">Nevada</option>
+            <option key="NH" value="NH">New Hampshire</option>
+            <option key="NJ" value="NJ">New Jersey</option>
+            <option key="NM" value="NM">New Mexico</option>
+            <option key="NY" value="NY">New York</option>
+            <option key="NC" value="NC">North Carolina</option>
+            <option key="ND" value="ND">North Dakota</option>
+            <option key="OH" value="OH">Ohio</option>
+            <option key="OK" value="OK">Oklahoma</option>
+            <option key="OR" value="OR">Oregon</option>
+            <option key="PA" value="PA">Pennsylvania</option>
+            <option key="RI" value="RI">Rhode Island</option>
+            <option key="SC" value="SC">South Carolina</option>
+            <option key="SD" value="SD">South Dakota</option>
+            <option key="TN" value="TN">Tennessee</option>
+            <option key="TX" value="TX">Texas</option>
+            <option key="UT" value="UT">Utah</option>
+            <option key="VT" value="VT">Vermont</option>
+            <option key="VA" value="VA">Virginia</option>
+            <option key="WA" value="WA">Washington</option>
+            <option key="WV" value="WV">West Virginia</option>
+            <option key="WI" value="WI">Wisconsin</option>
+            <option key="WY" value="WY">Wyoming</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="cn-zip" className="block text-sm font-medium mb-2">ZIP Code</label>
+        <input id="cn-zip" name="zip" type="text" required inputMode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" maxLength={10} autoComplete="postal-code" placeholder="85001"
+          className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
+      </div>
+
+      <div>
         <label htmlFor="cn-stage" className="block text-sm font-medium mb-2">Where Are You in the Process?</label>
         <select id="cn-stage" name="business_stage" required defaultValue=""
           className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors">
