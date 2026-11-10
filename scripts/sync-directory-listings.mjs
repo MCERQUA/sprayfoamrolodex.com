@@ -20,7 +20,7 @@ async function main() {
 
   const listings = leads
     .filter((l) => l.source_site === SITE)
-    .filter((l) => (l.form_type || l.extra_fields?.form_name) === FORM_NAME || l.service_type === undefined)
+    .filter((l) => (l.form_type || l.extra_fields?.form_name) === FORM_NAME)
     .filter((l) => !(l.name || "").trim().toUpperCase().startsWith("DO NOT ACTION"))
     .map((l) => ({
       name: l.name || "",
