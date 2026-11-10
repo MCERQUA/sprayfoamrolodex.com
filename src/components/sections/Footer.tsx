@@ -5,6 +5,7 @@ import { site, topics } from "@/lib/site";
 const companyLinks = [
   { label: "About", href: "/about" },
   { label: "Topics", href: "/topics" },
+  { label: "Directory", href: "/directory" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
   { label: "Talk to CCA", href: "/get-connected" },

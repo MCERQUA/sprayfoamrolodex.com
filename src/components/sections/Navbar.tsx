@@ -42,6 +42,7 @@ const DEFAULT_NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Topics", href: "/topics" },
+  { label: "Directory", href: "/directory" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
