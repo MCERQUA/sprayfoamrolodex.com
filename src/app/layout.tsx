@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { headingFont, bodyFont } from "@/lib/fonts";
+import { headingFont, bodyFont, scriptFont } from "@/lib/fonts";
 import { SmoothScroll } from "@/components/animations/SmoothScroll";
 import { StickyMobileCTA } from "@/components/shared/StickyMobileCTA";
 import { site } from "@/lib/site";
@@ -8,19 +8,19 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.businessName} — Your Reference Guide to Starting and Running a Spray Foam Business`,
+    default: `${site.businessName} — Spray Foam Industry Directory`,
     template: `%s | ${site.businessName}`,
   },
   description:
-    "A practical buyer's guide for people starting or scaling a spray foam insulation business — rigs, proportioners, real startup costs, chemical suppliers, PPE, and training, explained honestly.",
+    "A free, old-school Rolodex-style directory of spray foam insulation professionals — installers, crews, suppliers, and trainers. Post your contact info so people can find you.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: site.url,
     siteName: site.businessName,
-    title: `${site.businessName} — Your Reference Guide to Starting and Running a Spray Foam Business`,
+    title: `${site.businessName} — Spray Foam Industry Directory`,
     description:
-      "A practical buyer's guide for people starting or scaling a spray foam insulation business — rigs, proportioners, real costs, suppliers, PPE, and training.",
+      "A free directory of spray foam insulation professionals. Post your contact info so people can find you.",
     images: [
       {
         url: "/images/hero-rig-lineup.jpg",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.businessName} — Your Reference Guide to Starting and Running a Spray Foam Business`,
+    title: `${site.businessName} — Spray Foam Industry Directory`,
     description:
-      "A practical buyer's guide for people starting or scaling a spray foam insulation business.",
+      "A free directory of spray foam insulation professionals. Post your contact info so people can find you.",
     images: ["/images/hero-rig-lineup.jpg"],
   },
   robots: {
@@ -49,10 +49,8 @@ const orgSchema = {
   "@type": "Organization",
   name: site.businessName,
   description:
-    "A practical reference resource for people starting or scaling a spray foam insulation business — equipment, real startup costs, suppliers, safety, and training — backed by Contractors Choice Agency.",
+    "A free directory of spray foam insulation industry professionals — installers, crews, equipment and chemical suppliers, and trainers — post your contact info so people can find you.",
   url: site.url,
-  telephone: site.phoneDigits,
-  email: site.email,
   address: {
     "@type": "PostalAddress",
     streetAddress: site.address.street,
@@ -70,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${headingFont.variable} ${bodyFont.variable}`}>
+    <html lang="en" className={`${headingFont.variable} ${bodyFont.variable} ${scriptFont.variable}`}>
       <body className="antialiased">
         <script
           type="application/ld+json"

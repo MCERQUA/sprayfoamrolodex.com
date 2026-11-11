@@ -10,14 +10,4 @@
 [[notifications]]
   event = "submission_created"
   url = "https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=sprayfoamrolodex.com"
-  form = "connect"
-
-[[notifications]]
-  event = "submission_created"
-  url = "https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=sprayfoamrolodex.com"
-  form = "contact"
-
-[[notifications]]
-  event = "submission_created"
-  url = "https://josh.jam-bot.com/social-api/api/leads/webhook/netlify?tenant=josh&site=sprayfoamrolodex.com"
   form = "directory-listing"

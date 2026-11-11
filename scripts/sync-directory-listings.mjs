@@ -28,6 +28,11 @@ async function main() {
       city: l.extra_fields?.city || l.address?.split(",")[0]?.trim() || "",
       state: l.extra_fields?.state || "",
       specialty: l.service_type || l.extra_fields?.specialty || "Other",
+      credentials: l.extra_fields?.credentials || undefined,
+      // Netlify Forms file-upload field: the submission payload carries the uploaded
+      // file's URL as a plain string under the field name. Verified against a real
+      // tagged test submission with an attached image before this shipped live.
+      logoUrl: l.extra_fields?.logo || undefined,
       email: l.email || undefined,
       phone: l.phone || undefined,
       website: l.extra_fields?.website || undefined,

@@ -41,13 +41,9 @@ interface NavbarProps {
 const DEFAULT_NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Topics", href: "/topics" },
-  { label: "Directory", href: "/directory" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
 ];
 
-const DEFAULT_CTA: NavCTA = { label: "Talk to CCA", href: "/get-connected" };
+const DEFAULT_CTA: NavCTA = { label: "Add Your Listing", href: "/#add-listing" };
 
 export function Navbar(props: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);

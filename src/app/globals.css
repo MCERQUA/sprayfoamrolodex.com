@@ -45,6 +45,14 @@
   --ink-foreground: 42 40% 95%;
 
   --radius: 0.75rem;                  /* ROUND_TWELVE per Stitch design system */
+
+  /* Rolodex theme (2026-11-11, Josh's reference photo): cream index cards + blue
+     A-Z tab dividers + black rotating frame. Reuses the existing warm-parchment
+     palette for the frame/background — only the tab blue and card cream are new. */
+  --rolodex-card: 40 45% 94%;         /* cream index-card stock */
+  --rolodex-tab: 213 62% 38%;         /* blue alphabet tab divider */
+  --rolodex-tab-foreground: 0 0% 100%;
+  --rolodex-frame: 30 25% 10%;        /* near-black rotating frame */
 }
 
 * {

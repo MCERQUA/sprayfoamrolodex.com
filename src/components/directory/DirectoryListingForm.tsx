@@ -53,10 +53,11 @@ export function DirectoryListingForm() {
     const formData = new FormData(e.currentTarget);
 
     try {
+      // multipart/form-data (not urlencoded) — required for the logo file field.
+      // Letting fetch set its own Content-Type gives it the multipart boundary.
       const res = await fetch("/__forms.html", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
+        body: formData,
       });
 
       if (!res.ok) throw new Error("Failed to submit your listing. Please try again.");
@@ -162,6 +163,24 @@ export function DirectoryListingForm() {
           <label htmlFor="dl-website" className="block text-sm font-medium mb-2">Website (optional)</label>
           <input id="dl-website" name="website" type="url" placeholder="https://yourbusiness.com"
             className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
+        </div>
+
+        <div>
+          <label htmlFor="dl-credentials" className="block text-sm font-medium mb-2">
+            Certifications / Licenses (optional)
+          </label>
+          <input id="dl-credentials" name="credentials" type="text"
+            placeholder="e.g. SPFA Certified, Licensed Contractor"
+            className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
+          <p className="mt-1.5 text-xs text-muted-foreground">
+            Trade certifications or licenses only &mdash; not coaching, training programs, or courses.
+          </p>
+        </div>
+
+        <div>
+          <label htmlFor="dl-logo" className="block text-sm font-medium mb-2">Business Logo (optional)</label>
+          <input id="dl-logo" name="logo" type="file" accept="image/*"
+            className="w-full text-sm file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:font-semibold file:bg-primary file:text-primary-foreground hover:file:bg-primary/90 file:cursor-pointer cursor-pointer bg-background border border-border rounded-lg px-4 py-2.5" />
         </div>
 
         {error && <p className="text-sm text-destructive">{error}</p>}

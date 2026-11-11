@@ -45,10 +45,17 @@ const config: Config = {
           DEFAULT: "hsl(var(--ink))",
           foreground: "hsl(var(--ink-foreground))",
         },
+        "rolodex-card": "hsl(var(--rolodex-card))",
+        "rolodex-tab": {
+          DEFAULT: "hsl(var(--rolodex-tab))",
+          foreground: "hsl(var(--rolodex-tab-foreground))",
+        },
+        "rolodex-frame": "hsl(var(--rolodex-frame))",
       },
       fontFamily: {
         heading: ["var(--font-heading)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
+        script: ["var(--font-script)", "cursive"],
       },
       borderRadius: {
         lg: "var(--radius)",

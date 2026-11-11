@@ -6,6 +6,8 @@ export interface DirectoryListing {
   city: string;
   state: string;
   specialty: string;
+  credentials?: string;
+  logoUrl?: string;
   email?: string;
   phone?: string;
   website?: string;
@@ -18,10 +20,12 @@ export function getDirectoryListings(): DirectoryListing[] {
   );
 }
 
-export function getSpecialties(listings: DirectoryListing[]): string[] {
-  return Array.from(new Set(listings.map((l) => l.specialty).filter(Boolean))).sort();
-}
-
-export function getStates(listings: DirectoryListing[]): string[] {
-  return Array.from(new Set(listings.map((l) => l.state).filter(Boolean))).sort();
+// Letter used for the A-Z Rolodex tabs: first letter of the person/contact name (Josh,
+// 2026-11-11: "I'd like a similar look people can click on tabs and see ... name in
+// alphabetical order" — he's thinking of people, matching the reference photo's primary
+// card line being a person's name). Falls back to company when no name is given.
+export function getLetter(l: DirectoryListing): string {
+  const key = (l.name || l.company || "").trim();
+  const ch = key.charAt(0).toUpperCase();
+  return /[A-Z]/.test(ch) ? ch : "#";
 }

@@ -2,36 +2,9 @@
 <html>
 <head><meta charset="utf-8"><title>Form Registration</title></head>
 <body>
-<!-- Netlify static form-detection decoy. Never linked in nav; registers both forms + all fields. -->
+<!-- Netlify static form-detection decoy. Never linked in nav; registers the directory-listing form + all fields. -->
 
-<form name="contact" data-netlify="true" hidden>
-  <input type="hidden" name="form-name" value="contact" />
-  <input name="bot-field" />
-  <input name="name" />
-  <input name="phone" />
-  <input name="email" />
-  <textarea name="message"></textarea>
-  <input type="hidden" name="traffic_source" />
-  <input type="hidden" name="landing_url" />
-</form>
-
-<form name="connect" data-netlify="true" hidden>
-  <input type="hidden" name="form-name" value="connect" />
-  <input name="bot-field" />
-  <input name="name" />
-  <input name="phone" />
-  <input name="email" />
-  <input name="street_address" />
-  <input name="city" />
-  <select name="state"></select>
-  <input name="zip" />
-  <input name="business_stage" />
-  <textarea name="notes"></textarea>
-  <input type="hidden" name="traffic_source" />
-  <input type="hidden" name="landing_url" />
-</form>
-
-<form name="directory-listing" data-netlify="true" hidden>
+<form name="directory-listing" method="POST" data-netlify="true" enctype="multipart/form-data" hidden>
   <input type="hidden" name="form-name" value="directory-listing" />
   <input name="bot-field" />
   <input name="name" />
@@ -39,6 +12,8 @@
   <input name="city" />
   <select name="state"></select>
   <input name="specialty" />
+  <input name="credentials" />
+  <input name="logo" type="file" />
   <input name="email" />
   <input name="phone" />
   <input name="website" />

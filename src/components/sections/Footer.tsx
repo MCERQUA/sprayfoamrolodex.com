@@ -1,14 +1,11 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
-import { site, topics } from "@/lib/site";
+import { site } from "@/lib/site";
 
 const companyLinks = [
+  { label: "Directory", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Topics", href: "/topics" },
-  { label: "Directory", href: "/directory" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
-  { label: "Talk to CCA", href: "/get-connected" },
+  { label: "Add Your Listing", href: "/#add-listing" },
 ];
 
 const legalLinks = [
@@ -20,15 +17,14 @@ export function Footer() {
   return (
     <footer className="bg-ink text-ink-foreground border-t border-black/10">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8">
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+          <div>
             <Link href="/" className="text-xl font-heading font-bold text-white">
               {site.businessName}
             </Link>
             <p className="mt-4 text-sm text-ink-foreground/70 leading-relaxed max-w-xs">
-              A practical reference guide for starting and running a spray foam insulation
-              business — equipment, real costs, suppliers, safety, and training. Backed by
-              Contractors Choice Agency.
+              A free, old-school contact directory for the spray foam industry — installers,
+              crews, suppliers, and trainers. Post your info and let people find you.
             </p>
             <div className="mt-6 space-y-3">
               <a href={`tel:${site.phoneDigits}`} className="flex items-center gap-2 text-sm text-ink-foreground/80 hover:text-white transition-colors">
@@ -53,19 +49,6 @@ export function Footer() {
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-ink-foreground/70 hover:text-white transition-colors">
                     {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-heading font-semibold text-sm uppercase tracking-wider mb-4 text-white">Topics</h4>
-            <ul className="space-y-3">
-              {topics.map((t) => (
-                <li key={t.slug}>
-                  <Link href={`/topics/${t.slug}`} className="text-sm text-ink-foreground/70 hover:text-white transition-colors">
-                    {t.shortName}
                   </Link>
                 </li>
               ))}

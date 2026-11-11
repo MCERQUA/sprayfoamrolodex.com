@@ -1,0 +1,9 @@
+# The directory is now the homepage itself — redirect the old standalone route
+# plus the deleted reference-guide pages so no bookmark/external link 404s.
+/directory  /  301
+/topics     /  301
+/topics/*   /  301
+/blog       /  301
+/blog/*     /  301
+/contact    /  301
+/get-connected  /  301
