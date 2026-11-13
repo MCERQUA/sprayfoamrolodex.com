@@ -2,20 +2,22 @@
 import { ArrowRight, UserPlus } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { FadeIn } from "@/components/animations/FadeIn";
+import { LETTER_PAIR_GROUPS } from "@/lib/directory";
 
 /**
- * Hero for the homepage-as-directory. The right-side artwork is a pure-CSS card-stack /
- * rotating-frame metaphor for the physical Rolodex Josh photographed (black frame + side
- * knobs, cream cards, blue A-Z tab) — not a photo, so it's labeled as illustrative chrome,
- * never real listing data.
+ * Hero for the homepage-as-directory. The horizontal drum illustration is a pure-CSS
+ * reconstruction of the physical Rolodex Josh photographed (task 2026-11-13-482 reference
+ * image): paired-letter blue tabs (A-B, C-D, ... W-Z) along the top of a lined-paper roller,
+ * chrome cylindrical end-caps with a center knob, and dark gunmetal V-shaped feet.
+ * Not a photo, so it's illustrative chrome, never real listing data.
  */
 export function RolodexHero() {
   const prefersReduced = useReducedMotion();
 
   return (
     <section className="relative overflow-hidden bg-rolodex-frame pt-32 pb-16 md:pt-40 md:pb-24">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <FadeIn>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
+        <FadeIn className="max-w-2xl">
           <p className="text-sm font-semibold text-rolodex-tab-foreground/70 uppercase tracking-wider mb-3">
             Industry Directory
           </p>
@@ -36,41 +38,53 @@ export function RolodexHero() {
           </a>
         </FadeIn>
 
+        {/* Horizontal drum illustration — plain flex centering, no transforms (a
+            transform-based vertical offset here previously created a stacking context
+            that hid the drum behind the text block above it). */}
         <motion.div
-          initial={prefersReduced ? false : { opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={prefersReduced ? false : { opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, type: "spring", damping: 20, stiffness: 100 }}
-          className="relative mx-auto w-full max-w-sm aspect-square"
+          className="relative mt-16 md:mt-20 mx-auto w-full max-w-5xl overflow-x-auto"
           aria-hidden="true"
         >
-          {/* Black rotating-frame base */}
-          <div className="absolute inset-x-6 bottom-8 top-16 bg-black/80 rounded-[2.5rem] shadow-2xl" />
-          {/* Side knobs */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-black/90 border-4 border-black/60 shadow-lg" />
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-black/90 border-4 border-black/60 shadow-lg" />
-
-          {/* Fanned card stack */}
-          {[
-            { rot: -8, y: 14, z: 1 },
-            { rot: -3, y: 8, z: 2 },
-            { rot: 4, y: 2, z: 3 },
-          ].map((c, i) => (
-            <div
-              key={i}
-              className="absolute inset-x-12 top-6 h-48 bg-rolodex-card rounded-lg shadow-xl border border-black/10"
-              style={{ transform: `rotate(${c.rot}deg) translateY(${c.y}px)`, zIndex: c.z }}
-            />
-          ))}
-
-          {/* Top card with blue A-Z tab + sample entry */}
-          <div className="absolute inset-x-12 top-6 h-48 bg-rolodex-card rounded-lg shadow-2xl border border-black/10 z-10 p-5">
-            <div className="absolute -top-3 left-5 px-3 py-1 bg-rolodex-tab text-rolodex-tab-foreground text-xs font-bold rounded-t-md">
-              A
+          <div className="relative min-w-[640px] flex items-center pb-10 px-1">
+            {/* Left chrome end-cap + knob + gunmetal foot */}
+            <div className="relative shrink-0 w-16 h-16 z-20">
+              <div className="absolute inset-0 rounded-full border-4 border-rolodex-frame shadow-xl" style={{ background: "radial-gradient(circle at 35% 30%, #fff 0%, hsl(var(--rolodex-chrome)) 45%, hsl(var(--rolodex-frame)) 100%)" }}>
+                <span className="absolute inset-0 m-auto w-5 h-5 rounded-full bg-rolodex-frame/80 border-2 border-white/40" />
+              </div>
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-14 h-10" style={{ background: "linear-gradient(180deg, hsl(var(--rolodex-chrome)) 0%, hsl(var(--rolodex-frame)) 70%)", border: "1px solid hsl(var(--rolodex-chrome) / 0.4)", borderTop: "none", clipPath: "polygon(10% 100%, 50% 10%, 90% 100%)" }} />
             </div>
-            <p className="font-script text-2xl text-foreground/90">Your Name</p>
-            <p className="text-xs text-secondary/80 font-medium mt-0.5">Your Business</p>
-            <p className="text-xs font-semibold text-rolodex-tab uppercase tracking-wide mt-3">Your Specialty</p>
-            <p className="text-xs text-muted-foreground mt-1">yourbusiness.com</p>
+
+            {/* Drum body — lined-paper roller */}
+            <div
+              className="relative flex-1 h-24 -mx-2 rounded-full border border-black/10 shadow-2xl overflow-hidden bg-rolodex-card z-10"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(90deg, hsl(var(--border)/0.7) 0 1px, transparent 1px 8px)",
+              }}
+            >
+              {/* Paired-letter blue tabs along the top */}
+              <div className="absolute inset-x-0 top-0 flex h-8">
+                {LETTER_PAIR_GROUPS.map((g) => (
+                  <div
+                    key={g.label}
+                    className="flex-1 flex items-center justify-center bg-rolodex-tab text-rolodex-tab-foreground text-[0.65rem] font-bold border-r border-white/20 last:border-r-0"
+                  >
+                    {g.label}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right chrome end-cap + knob + gunmetal foot */}
+            <div className="relative shrink-0 w-16 h-16 z-20">
+              <div className="absolute inset-0 rounded-full border-4 border-rolodex-frame shadow-xl" style={{ background: "radial-gradient(circle at 65% 30%, #fff 0%, hsl(var(--rolodex-chrome)) 45%, hsl(var(--rolodex-frame)) 100%)" }}>
+                <span className="absolute inset-0 m-auto w-5 h-5 rounded-full bg-rolodex-frame/80 border-2 border-white/40" />
+              </div>
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-14 h-10" style={{ background: "linear-gradient(180deg, hsl(var(--rolodex-chrome)) 0%, hsl(var(--rolodex-frame)) 70%)", border: "1px solid hsl(var(--rolodex-chrome) / 0.4)", borderTop: "none", clipPath: "polygon(10% 100%, 50% 10%, 90% 100%)" }} />
+            </div>
           </div>
         </motion.div>
       </div>

@@ -53,6 +53,10 @@
   --rolodex-tab: 213 62% 38%;         /* blue alphabet tab divider */
   --rolodex-tab-foreground: 0 0% 100%;
   --rolodex-frame: 30 25% 10%;        /* near-black rotating frame */
+
+  /* Added 2026-11-13 (task 2026-11-13-482, Josh's reference photo): chrome end-caps +
+     gunmetal V-feet on the horizontal drum. --rolodex-frame doubles as the gunmetal feet. */
+  --rolodex-chrome: 210 8% 72%;       /* light cool gray — chrome end-cap gradient base */
 }
 
 * {

@@ -2,57 +2,68 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import { Globe, MapPin, BadgeCheck } from "lucide-react";
-import { getLetter, type DirectoryListing } from "@/lib/directory";
+import { getLetterPair, LETTER_PAIR_GROUPS, type DirectoryListing } from "@/lib/directory";
 
 interface DirectoryGridProps {
   listings: DirectoryListing[];
 }
 
-const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#".split("");
+const TAB_LABELS = [...LETTER_PAIR_GROUPS.map((g) => g.label), "#"];
 
 export function DirectoryGrid({ listings }: DirectoryGridProps) {
   const [activeLetter, setActiveLetter] = useState<string>("ALL");
 
-  const lettersInUse = useMemo(() => new Set(listings.map(getLetter)), [listings]);
-
   const filtered = useMemo(() => {
     if (activeLetter === "ALL") return listings;
-    return listings.filter((l) => getLetter(l) === activeLetter);
+    return listings.filter((l) => getLetterPair(l) === activeLetter);
   }, [listings, activeLetter]);
 
   return (
     <div>
-      {/* Blue A-Z tab dividers — the Rolodex's own browsing mechanism, not a generic filter UI */}
-      <div className="flex flex-wrap gap-1 mb-10 justify-center sm:justify-start">
-        <button
-          onClick={() => setActiveLetter("ALL")}
-          className={`px-3 py-2 text-xs font-bold rounded-t-md transition-colors cursor-pointer ${
-            activeLetter === "ALL"
-              ? "bg-rolodex-tab text-rolodex-tab-foreground"
-              : "bg-rolodex-tab/20 text-rolodex-tab hover:bg-rolodex-tab/30"
-          }`}
+      {/* Paired-letter tabs on a drum body — matching the physical Rolodex reference photo
+          (task 2026-11-13-482): bold blue rounded tabs sitting on a horizontal roller with
+          chrome end-caps, not a flat single-letter row. */}
+      <div className="mb-10 overflow-x-auto pb-2">
+        <div className="relative min-w-max rounded-full bg-rolodex-card border border-border/60 shadow-inner px-3 pt-3 pb-5 mx-2"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(90deg, hsl(var(--border)/0.6) 0 1px, transparent 1px 7px)",
+          }}
         >
-          ALL
-        </button>
-        {ALPHABET.map((letter) => {
-          const inUse = lettersInUse.has(letter);
-          return (
+          {/* Chrome end-caps with center knob, mirroring the reference's hardware */}
+          <span className="hidden sm:block absolute -left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 border-rolodex-frame/70 shadow-md" style={{ background: "radial-gradient(circle at 35% 30%, #fff 0%, hsl(var(--rolodex-chrome)) 45%, hsl(var(--rolodex-frame)) 100%)" }} aria-hidden="true" />
+          <span className="hidden sm:block absolute -right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border-2 border-rolodex-frame/70 shadow-md" style={{ background: "radial-gradient(circle at 65% 30%, #fff 0%, hsl(var(--rolodex-chrome)) 45%, hsl(var(--rolodex-frame)) 100%)" }} aria-hidden="true" />
+
+          <div className="flex flex-wrap gap-1 justify-center sm:justify-start relative z-10">
             <button
-              key={letter}
-              disabled={!inUse}
-              onClick={() => setActiveLetter(letter)}
-              className={`w-8 py-2 text-xs font-bold rounded-t-md transition-colors ${
-                activeLetter === letter
-                  ? "bg-rolodex-tab text-rolodex-tab-foreground cursor-pointer"
-                  : inUse
-                  ? "bg-rolodex-tab/20 text-rolodex-tab hover:bg-rolodex-tab/30 cursor-pointer"
-                  : "bg-muted text-muted-foreground/40 cursor-not-allowed"
+              onClick={() => setActiveLetter("ALL")}
+              className={`px-4 py-2 text-xs font-bold rounded-lg transition-colors cursor-pointer shadow-sm ${
+                activeLetter === "ALL"
+                  ? "bg-rolodex-tab text-rolodex-tab-foreground ring-2 ring-rolodex-frame/40"
+                  : "bg-rolodex-tab text-rolodex-tab-foreground hover:bg-rolodex-tab/90"
               }`}
             >
-              {letter}
+              ALL
             </button>
-          );
-        })}
+            {TAB_LABELS.map((label) => {
+              // Reference photo shows every tab bold blue regardless of how many cards
+              // are filed under it - a sparsely-populated early directory shouldn't look
+              // "broken" with most tabs grayed out. All tabs stay clickable; an empty
+              // group just shows the existing "No listings start with that letter yet" state.
+              return (
+                <button
+                  key={label}
+                  onClick={() => setActiveLetter(label)}
+                  className={`px-3 py-2 text-xs font-bold rounded-lg transition-colors shadow-sm cursor-pointer bg-rolodex-tab text-rolodex-tab-foreground hover:bg-rolodex-tab/90 ${
+                    activeLetter === label ? "ring-2 ring-rolodex-frame/40" : ""
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {filtered.length === 0 ? (
