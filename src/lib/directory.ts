@@ -3,13 +3,10 @@ import listingsData from "@/content/directory-listings.json";
 export interface DirectoryListing {
   name: string;
   company?: string;
-  city: string;
   state: string;
   specialty: string;
   credentials?: string;
   logoUrl?: string;
-  email?: string;
-  phone?: string;
   website?: string;
   listed_at: string;
 }

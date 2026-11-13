@@ -69,8 +69,8 @@ export function RolodexHero() {
             </div>
             <p className="font-script text-2xl text-foreground/90">Your Name</p>
             <p className="text-xs text-secondary/80 font-medium mt-0.5">Your Business</p>
-            <p className="text-xs text-muted-foreground mt-3">(555) 555-5555</p>
-            <p className="text-xs text-muted-foreground">you@email.com</p>
+            <p className="text-xs font-semibold text-rolodex-tab uppercase tracking-wide mt-3">Your Specialty</p>
+            <p className="text-xs text-muted-foreground mt-1">yourbusiness.com</p>
           </div>
         </motion.div>
       </div>

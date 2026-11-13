@@ -121,20 +121,13 @@ export function DirectoryListingForm() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="sm:col-span-2">
-            <label htmlFor="dl-city" className="block text-sm font-medium mb-2">City</label>
-            <input id="dl-city" name="city" type="text" required placeholder="Chandler"
-              className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
-          </div>
-          <div>
-            <label htmlFor="dl-state" className="block text-sm font-medium mb-2">State</label>
-            <select id="dl-state" name="state" required defaultValue=""
-              className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
-              <option value="" disabled>Select...</option>
-              {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
-            </select>
-          </div>
+        <div>
+          <label htmlFor="dl-state" className="block text-sm font-medium mb-2">State</label>
+          <select id="dl-state" name="state" required defaultValue=""
+            className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50">
+            <option value="" disabled>Select...</option>
+            {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
+          </select>
         </div>
 
         <div>
@@ -144,19 +137,6 @@ export function DirectoryListingForm() {
             <option value="" disabled>Select...</option>
             {SPECIALTIES.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor="dl-email" className="block text-sm font-medium mb-2">Email</label>
-            <input id="dl-email" name="email" type="email" required placeholder="you@email.com"
-              className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
-          </div>
-          <div>
-            <label htmlFor="dl-phone" className="block text-sm font-medium mb-2">Phone (optional)</label>
-            <input id="dl-phone" name="phone" type="tel" placeholder="(555) 555-5555"
-              className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors" />
-          </div>
         </div>
 
         <div>

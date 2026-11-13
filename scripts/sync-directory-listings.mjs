@@ -25,7 +25,6 @@ async function main() {
     .map((l) => ({
       name: l.name || "",
       company: l.company || undefined,
-      city: l.extra_fields?.city || l.address?.split(",")[0]?.trim() || "",
       state: l.extra_fields?.state || "",
       specialty: l.service_type || l.extra_fields?.specialty || "Other",
       credentials: l.extra_fields?.credentials || undefined,
@@ -36,12 +35,10 @@ async function main() {
       logoUrl:
         (typeof l.extra_fields?.logo === "object" ? l.extra_fields?.logo?.url : l.extra_fields?.logo) ||
         undefined,
-      email: l.email || undefined,
-      phone: l.phone || undefined,
       website: l.extra_fields?.website || undefined,
       listed_at: l.created_at || new Date().toISOString(),
     }))
-    .filter((l) => l.name && l.city && l.state);
+    .filter((l) => l.name && l.state);
 
   const fs = await import("fs");
   const path = await import("path");

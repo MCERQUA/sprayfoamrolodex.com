@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import Image from "next/image";
-import { Phone, Mail, Globe, MapPin, BadgeCheck } from "lucide-react";
+import { Globe, MapPin, BadgeCheck } from "lucide-react";
 import { getLetter, type DirectoryListing } from "@/lib/directory";
 
 interface DirectoryGridProps {
@@ -116,20 +116,10 @@ export function DirectoryGrid({ listings }: DirectoryGridProps) {
 
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-3.5 h-3.5 shrink-0" />
-                {l.city}, {l.state}
+                {l.state}
               </div>
 
               <div className="mt-auto pt-3 border-t border-border/60 flex flex-col gap-1.5">
-                {l.phone && (
-                  <a href={`tel:${l.phone.replace(/\D/g, "")}`} className="flex items-center gap-2 text-sm hover:text-rolodex-tab transition-colors">
-                    <Phone className="w-3.5 h-3.5 text-rolodex-tab" /> {l.phone}
-                  </a>
-                )}
-                {l.email && (
-                  <a href={`mailto:${l.email}`} className="flex items-center gap-2 text-sm hover:text-rolodex-tab transition-colors">
-                    <Mail className="w-3.5 h-3.5 text-rolodex-tab" /> {l.email}
-                  </a>
-                )}
                 {l.website && (
                   <a href={l.website} target="_blank" rel="noopener noreferrer nofollow" className="flex items-center gap-2 text-sm hover:text-rolodex-tab transition-colors">
                     <Globe className="w-3.5 h-3.5 text-rolodex-tab" /> {l.website.replace(/^https?:\/\//, "")}
