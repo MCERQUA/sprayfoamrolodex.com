@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "name": "Josh Cotner",
+    "company": "Spray Foam Insurance",
+    "state": "AZ",
+    "specialty": "Consulting",
+    "credentials": "CRIS",
+    "logoUrl": "https://d33wubrfki0l68.cloudfront.net/41df0a80-92df-461d-ae16-400f33eb593c/2000x2000.jpg",
+    "website": "https://www.sprayfoaminsurance.com",
+    "listed_at": "2026-11-12T15:40:42.501Z"
+  }
+]
