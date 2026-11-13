@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export default function NotFound() {
   return (
     <main>
-      <Navbar businessName={site.businessName} phone={site.phone} />
+      <Navbar businessName={site.businessName} />
       <section className="pt-40 pb-24 text-center px-4">
         <h1 className="text-5xl font-heading font-bold">404</h1>
         <p className="mt-4 text-lg text-muted-foreground">We couldn&apos;t find that page.</p>

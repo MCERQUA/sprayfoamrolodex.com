@@ -33,7 +33,7 @@ const values = [
 export default function AboutPage() {
   return (
     <main>
-      <Navbar businessName={site.businessName} phone={site.phone} />
+      <Navbar businessName={site.businessName} />
 
       <section className="pt-36 pb-20 md:pt-44 md:pb-28 bg-background">
         <div className="max-w-3xl mx-auto px-4 md:px-6 text-center">

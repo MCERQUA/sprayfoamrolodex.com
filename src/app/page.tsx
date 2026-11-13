@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <main>
-      <Navbar businessName={site.businessName} phone={site.phone} />
+      <Navbar businessName={site.businessName} />
 
       <RolodexHero />
 

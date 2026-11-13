@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <main>
-      <Navbar businessName={site.businessName} phone={site.phone} />
+      <Navbar businessName={site.businessName} />
       <section className="pt-36 pb-24 md:pt-44">
         <div className="max-w-3xl mx-auto px-4 md:px-6">
           <h1 className="text-4xl font-heading font-bold mb-8">Privacy Policy</h1>
